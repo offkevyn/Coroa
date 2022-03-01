@@ -19,7 +19,7 @@ body
 
 #main
 {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     position: absolute;
     top: 100px;
     bottom: 0px;
