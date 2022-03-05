@@ -1,5 +1,7 @@
 @charset "URF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
+
 *
 {
     box-sizing: border-box;
@@ -49,7 +51,52 @@ body
     background-color:blueviolet ;
     width: calc(100% / 3);
     border: 1px solid black;
+    padding: 0;
+    position: relative;
 }
+
+ .casa-text
+{
+    font-size: 90px;
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+.fonte-1
+{
+    font-family: 'Comforter Brush', cursive;
+}
+.fonte-2
+{
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.fonte-3
+{
+    font-family: 'Indie Flower', cursive;
+}
+.fonte-4
+{
+    font-family: 'Mansalva', cursive;
+}
+.fonte-5
+{
+    font-family: 'Merienda', cursive;
+}
+.fonte-6
+{
+    font-family: 'Schoolbell', cursive;
+}
+.fonte-7
+{
+    font-family: 'Permanent Marker', cursive;
+}
+.fonte-8
+{
+    font-family: 'Rock Salt', cursive;
+}
+
+
 
 @media (max-width: 425px)
 {
