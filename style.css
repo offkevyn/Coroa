@@ -1,6 +1,8 @@
 @charset "URF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Delius&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
+
 
 *
 {
@@ -11,32 +13,66 @@ body, html
 {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 body
 {
-        background-color: rgb(83, 140, 190);
+    background-color: #070d22;
+    background-image: linear-gradient(to bottom right, #131a38, #023B65, #070d22, #070d22);
+}
+
+#titulo
+{
+    top: 100px;
+    width: 100%;    
+    text-align: center;
+    font-family: 'Delius', cursive;
+}
+
+#titulo h1
+{
+    color: #e7fae3;
+    text-shadow: 1px 1px 20px #39FF14;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgba(55, 255, 20);
+    font-size: 2.7rem;
+}
+
+#proximo_jogar
+{
+    background-color: rgba(1, 37, 63, 0.5);
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    margin-top: 15px;
+    border: 1px solid rgba(55, 255, 20, 0.6);
+    box-shadow: -1px -1px 20px 0.5px rgb(57, 255, 20, 0.6);
+    border-radius: 5px;
+}
+
+#proximo_jogar span
+{
+    font-size: 3rem;
+    color: white;
 }
 
 
 #main
 {
-    /* background-color: whitesmoke; */
-    position: absolute;
-    top: 100px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
     margin: auto;
     max-width: 400px;
     height: 450px;
     padding: 0;
+    padding-top: 0px;
 }
 
 #jogo
 {
     width: 100%;
-    margin: 0;
+    margin: auto;
+    margin-top: 35px;
 }
 
 .linha
@@ -48,16 +84,45 @@ body
 
 .casa
 {
-    background-color:blueviolet ;
+    background-color: #221838 ;
     width: calc(100% / 3);
-    border: 1px solid black;
     padding: 0;
     position: relative;
+    color: white;
+    border: solid rgba(238, 180, 44, 0.500);
+    cursor: pointer;
 }
 
- .casa-text
+#casa-1, #casa-2, #casa-4, #casa-5
 {
-    font-size: 90px;
+   border-width: 0 1px 1px 0;
+   box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
+
+}
+
+#casa-3, #casa-6
+{
+    border-width: 0 0 1px 0;
+    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
+}
+
+#casa-7, #casa-8
+{
+    border-width: 0 1px 0 0;
+    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
+}
+
+#casa-9
+{
+    border-width: 0 0 0 0;
+    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
+
+}
+
+
+.casa-text
+{
+    font-size: 5rem;
     display: block;
     text-align: center;
     justify-content: center;
@@ -96,7 +161,30 @@ body
     font-family: 'Rock Salt', cursive;
 }
 
+.jogador-X
+{
+    text-shadow: 1px 1px 30px #FD2BF0;
+    -webkit-text-stroke-width: 3.5px;
+    -webkit-text-stroke-color: rgba(253, 43, 239, 0.550);
+}
 
+.jogador-O
+{
+    text-shadow: 1px 1px 30px #17B5FC;
+    -webkit-text-stroke-width: 3.5px;
+    -webkit-text-stroke-color: rgb(23, 181, 252, 0.550);
+}
+
+.jogador-X, .jogador-O
+{
+    cursor: no-drop;
+    width: 100%;
+    height: 100%;
+}
+
+::selection {
+    background: transparent;
+  }
 
 @media (max-width: 425px)
 {
@@ -106,4 +194,21 @@ body
         max-width: 340px;
         height: 390px;
     }
+
+    .casa::after
+    {
+        width: 0;
+    }
+    .casa::before
+    {
+        width: 0;
+    }
+}
+
+@media (max-width: 395px)
+{
+   #titulo h1
+   {
+        font-size: 2.1rem;
+   }
 }

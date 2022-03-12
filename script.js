@@ -14,7 +14,8 @@ var player_atual, casas_pl_1 = [], casas_pl_2 = [],
         [3,6,9],
         [1,5,9],
         [3,5,7]
-    ]
+    ],
+    proximo_pl = document.getElementById('proximo_jogar');
 ;
 
 function clique(evt)
@@ -23,32 +24,34 @@ function clique(evt)
 
     casa_clicada = parseInt(evt.target.id.replace(/[^0-9]/g,''));
 
-    fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
-
     console.log(casa_clicada);
     
     if(casas_pl_2.includes(casa_clicada) == false && casas_pl_1.includes(casa_clicada) == false)
     {
         if(player_atual == pl.player_2) //Player 2
         {
-            player_atual = pl.player_1;
             casas_pl_2.push(casa_clicada);
-            element.innerHTML = '<span class="casa-text ' + fonte + '">O</span>';
+            element.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
+            player_atual = pl.player_1;
             if( ganhou(casas_pl_2))
             {
                 console.log("Player 2 ganhou");
             }
+            fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
+            proximo_pl.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
         }
         else //Player 1
         {
-            player_atual = pl.player_2;
-            element.innerHTML = '<span class="casa-text ' + fonte + '">X</span>';
             casas_pl_1.push(casa_clicada);
+            element.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
+            player_atual = pl.player_2;
             if( ganhou(casas_pl_1))
             {
                 console.log("Player 1 ganhou");
             }
 
+            fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
+            proximo_pl.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
         }
     }
 }
@@ -74,6 +77,10 @@ function main()
     for (var i = 0; i < casas.length; i++) {
         casas[i].addEventListener('click', clique);
     }
+
+    fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
+    
+    proximo_pl.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
 
 }
 
