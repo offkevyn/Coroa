@@ -20,14 +20,16 @@ body
 {
     background-color: #070d22;
     background-image: linear-gradient(to bottom right, #131a38, #023B65, #070d22, #070d22);
+    background-attachment: fixed;
 }
+
+
 
 #titulo
 {
     top: 100px;
     width: 100%;    
     text-align: center;
-    font-family: 'Delius', cursive;
 }
 
 #titulo h1
@@ -37,6 +39,7 @@ body
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: rgba(55, 255, 20);
     font-size: 2.7rem;
+    font-family: 'Delius', cursive;
 }
 
 #proximo_jogar
@@ -58,21 +61,121 @@ body
     color: white;
 }
 
+#aux
+{
+    position: relative;
+}
+
+#ganhou
+{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    font-family: 'Delius', cursive;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 20px rgb(170, 0, 255);
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: rgba(170, 0, 255, 0.6);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    width: 240px;
+    height: 60px;
+    background-color: rgb(25, 1, 37);
+    border: 1px solid rgb(170, 0, 255);
+    box-shadow: -1px -1px 20px 0.5px rgb(170, 0, 255, 0.6);
+    border-radius: 15px;
+
+    visibility: hidden;
+
+    transition: 0.8s;
+
+}
 
 #main
 {
     margin: auto;
     max-width: 400px;
-    height: 450px;
+    height: 100%;
     padding: 0;
     padding-top: 0px;
+    margin-bottom: 20px;
+}
+
+#butons
+{
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+}
+
+button
+{
+    --cor: rgb(0, 177, 236);
+
+    width: 5.3rem;
+    height: 35px;
+    font-size: 1.1rem;
+    font-family: 'Delius', cursive;
+    border-radius: 5px;
+    color: var(--cor);
+    background-color: transparent;
+    border: 1px inset var(--cor);
+
+    text-shadow: 1px 1px 30px var(--cor);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 177, 236, 0.550);
+
+    transition: 0.8s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+button::before
+{
+    content: '';
+    width: calc(100% + 10px);
+    height: 0%;
+    background-color: var(--cor);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    z-index: -1;
+    border-radius: 0 0 50% 50%;
+    transition: 0.8s;
+
+}
+
+
+button:hover
+{
+    color: white;
+    border: 1px inset var(--cor);
+    outline: 0;
+    -webkit-text-stroke-width: 0;
+    box-shadow: 0px 0px 20px 5px rgba(0, 177, 236, 0.9);
+}
+
+button:hover::before
+{
+    height: calc(100% + 20px);
+}
+
+button:focus
+{
+    outline: 0;    
 }
 
 #jogo
 {
     width: 100%;
     margin: auto;
-    margin-top: 35px;
 }
 
 .linha
@@ -166,6 +269,8 @@ body
     text-shadow: 1px 1px 30px #FD2BF0;
     -webkit-text-stroke-width: 3.5px;
     -webkit-text-stroke-color: rgba(253, 43, 239, 0.550);
+
+    transition: 0.5s;
 }
 
 .jogador-O
@@ -173,6 +278,8 @@ body
     text-shadow: 1px 1px 30px #17B5FC;
     -webkit-text-stroke-width: 3.5px;
     -webkit-text-stroke-color: rgb(23, 181, 252, 0.550);
+
+
 }
 
 .jogador-X, .jogador-O
