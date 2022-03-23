@@ -1,8 +1,6 @@
 @charset "URF-8";
 
-/* @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Delius&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Delius');
 
 *
 {
@@ -19,105 +17,42 @@ body, html
 body
 {
     background-color: #070d22;
-    background-image: linear-gradient(to bottom right, #131a38, #023B65, #070d22, #070d22);
     background-attachment: fixed;
+    background-image: linear-gradient(to bottom right, #070d22, #070d22, #023B65, #131a38);
 }
 
-
-
-#titulo
+header
 {
-    top: 100px;
-    width: 100%;    
-    text-align: center;
-}
-
-#titulo h1
-{
-    color: #e7fae3;
-    text-shadow: 1px 1px 20px #39FF14;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgba(55, 255, 20);
-    font-size: 2.7rem;
-    font-family: 'Delius', cursive;
-}
-
-#proximo_jogar
-{
-    background-color: rgba(1, 37, 63, 0.5);
-    position: relative;
-    width: 5rem;
-    height: 5rem;
-    margin: auto;
-    margin-top: 15px;
-    border: 1px solid rgba(55, 255, 20, 0.6);
-    box-shadow: -1px -1px 20px 0.5px rgb(57, 255, 20, 0.6);
-    border-radius: 5px;
-}
-
-#proximo_jogar span
-{
-    font-size: 3rem;
-    color: white;
-}
-
-#aux
-{
-    position: relative;
-}
-
-#ganhou
-{
-    justify-content: center;
     align-items: center;
-    display: flex;
-    margin: auto;
+    margin-top: 10rem;
+    margin: 10rem 0 3.5rem 0;
+}
+
+header h1
+{
+    margin-top: 10px;
+    color: #e7fae3;
+    text-shadow: 1px 1px 20px rgb(255,0,142);
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(255,0,142);
+    font-size: 3.7rem;
     font-family: 'Delius', cursive;
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-shadow: 1px 1px 20px rgb(170, 0, 255);
-    -webkit-text-stroke-width: 1.2px;
-    -webkit-text-stroke-color: rgba(170, 0, 255, 0.6);
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-10deg);
-    width: 240px;
-    height: 60px;
-    background-color: rgb(25, 1, 37);
-    border: 1px solid rgb(170, 0, 255);
-    box-shadow: -1px -1px 20px 0.5px rgb(170, 0, 255, 0.6);
-    border-radius: 15px;
-
-    visibility: hidden;
-
-    transition: 0.8s;
-
-}
-
-#main
-{
-    margin: auto;
-    max-width: 400px;
-    height: 100%;
-    padding: 0;
-    padding-top: 0px;
-    margin-bottom: 20px;
-}
-
-#butons
-{
-    margin: 30px 0;
-    width: 100%;
     text-align: center;
+}
+
+
+nav
+{
+    margin: 0 auto;
+    width: 5.3rem;
+    padding: 0;
 }
 
 button
 {
     --cor: rgb(0, 177, 236);
 
-    width: 5.3rem;
+    min-width: 5.3rem;
     height: 35px;
     font-size: 1.1rem;
     font-family: 'Delius', cursive;
@@ -130,12 +65,15 @@ button
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(0, 177, 236, 0.550);
 
-    transition: 0.8s;
+    transition: 0.5s;
 
     position: relative;
 
     overflow: hidden;
+
+    margin-top: 10PX;
 }
+
 
 button::before
 {
@@ -148,8 +86,7 @@ button::before
     left: -5px;
     z-index: -1;
     border-radius: 0 0 50% 50%;
-    transition: 0.8s;
-
+    transition: 0.5s;
 }
 
 
@@ -172,150 +109,3 @@ button:focus
     outline: 0;    
 }
 
-#jogo
-{
-    width: 100%;
-    margin: auto;
-}
-
-.linha
-{
-    width: 100%;
-    height: 150px;
-    margin: 0;
-}
-
-.casa
-{
-    background-color: #221838 ;
-    width: calc(100% / 3);
-    padding: 0;
-    position: relative;
-    color: white;
-    border: solid rgba(238, 180, 44, 0.500);
-    cursor: pointer;
-}
-
-#casa-1, #casa-2, #casa-4, #casa-5
-{
-   border-width: 0 1px 1px 0;
-   box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
-
-}
-
-#casa-3, #casa-6
-{
-    border-width: 0 0 1px 0;
-    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
-}
-
-#casa-7, #casa-8
-{
-    border-width: 0 1px 0 0;
-    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
-}
-
-#casa-9
-{
-    border-width: 0 0 0 0;
-    box-shadow: -1px -1px 20px 0.5px rgba(238, 180, 44, 0.600);
-
-}
-
-
-.casa-text
-{
-    font-size: 5rem;
-    display: block;
-    text-align: center;
-    justify-content: center;
-}
-
-.fonte-1
-{
-    font-family: 'Comforter Brush', cursive;
-}
-.fonte-2
-{
-    font-family: 'Gloria Hallelujah', cursive;
-}
-.fonte-3
-{
-    font-family: 'Indie Flower', cursive;
-}
-.fonte-4
-{
-    font-family: 'Mansalva', cursive;
-}
-.fonte-5
-{
-    font-family: 'Merienda', cursive;
-}
-.fonte-6
-{
-    font-family: 'Schoolbell', cursive;
-}
-.fonte-7
-{
-    font-family: 'Permanent Marker', cursive;
-}
-.fonte-8
-{
-    font-family: 'Rock Salt', cursive;
-}
-
-.jogador-X
-{
-    text-shadow: 1px 1px 30px #FD2BF0;
-    -webkit-text-stroke-width: 3.5px;
-    -webkit-text-stroke-color: rgba(253, 43, 239, 0.550);
-
-    transition: 0.5s;
-}
-
-.jogador-O
-{
-    text-shadow: 1px 1px 30px #17B5FC;
-    -webkit-text-stroke-width: 3.5px;
-    -webkit-text-stroke-color: rgb(23, 181, 252, 0.550);
-
-
-}
-
-.jogador-X, .jogador-O
-{
-    cursor: no-drop;
-    width: 100%;
-    height: 100%;
-}
-
-::selection {
-    background: transparent;
-  }
-
-@media (max-width: 425px)
-{
-    #main
-    {
-        top: 50px;
-        max-width: 340px;
-        height: 390px;
-    }
-
-    .casa::after
-    {
-        width: 0;
-    }
-    .casa::before
-    {
-        width: 0;
-    }
-}
-
-@media (max-width: 395px)
-{
-   #titulo h1
-   {
-        font-size: 2.1rem;
-   }
-}

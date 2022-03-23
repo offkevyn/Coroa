@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,51 +10,27 @@
 
     <link rel="stylesheet" href="style.css">
 
-
-    <title>Coroa</title>
+    <title>Início</title>
+    
 </head>
-
 <body>
 
-    <div class="container">
+    <header class="container">
+        <h1>Início</h1>
+    </header>
 
-
-        <div id="main">
-            <div id="titulo">
-                <h1>Próximo a jogar ↓↓</h1>
-
-                <div id="aux">
-                    <div id="proximo_jogar">X</div>
-                    <div id="ganhou"></div>
-                </div>
-            </div>
-            <div id="butons">
-                <button onclick="reiniciar()">Reset</button>
-                <button>Inicio</button>
-                <button>Info</button>
-            </div>
-            <div id="jogo">
-                <div class="row linha">
-                    <div class="casa col-4" id="casa-1"></div>
-                    <div class="casa col-4" id="casa-2"></div>
-                    <div class="casa col-4" id="casa-3"></div>
-                </div>
-                <div class="row linha">
-                    <div class="casa col-4" id="casa-4"></div>
-                    <div class="casa col-4" id="casa-5"></div>
-                    <div class="casa col-4" id="casa-6"></div>
-                </div>
-                <div class="row linha">
-                    <div class="casa col-4" id="casa-7"></div>
-                    <div class="casa col-4" id="casa-8"></div>
-                    <div class="casa col-4" id="casa-9"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript" src="script.js"></script>
-
+    <nav>
+        <button onclick="location.href='jogo.html?modo=1'">
+            modo 1
+        </button>
+        <button onclick="location.href='jogo.html?modo=2'">
+            modo 2
+        </button>
+        <button onclick="location.href='jogo.html?modo=3 '">
+            modo 2
+        </button>
+    </nav>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -66,5 +41,4 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
