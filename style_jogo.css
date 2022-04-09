@@ -190,6 +190,7 @@ button:focus
     color: white;
     border: solid rgba(238, 180, 44, 0.500);
     cursor: pointer;
+    caret-color: transparent;
 }
 
 #casa-1, #casa-2, #casa-4, #casa-5

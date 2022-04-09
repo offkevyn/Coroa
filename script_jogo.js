@@ -22,7 +22,7 @@ var player_atual, casas_pl_1 = [], casas_pl_2 = [], num_jogadas = 0, pl1_jogou =
 
 const urlParams = new URLSearchParams(window.location.search), param_modo_jogo = urlParams.get('modo');
 
-function jogada_mecha_senku()
+'function jogada_mecha_senku()
 {
     casa_escolhida = null;
     //escolhendo a casa
@@ -50,15 +50,24 @@ function jogada_mecha_senku()
             {
                 if(casas_pl_2.includes(item[0]) && casas_pl_2.includes(item[1]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[2])
+                    if(!(casas_pl_1.includes(item[2])) && !(casas_pl_2.includes(item[2])))
+                    {
+                       casa_escolhida = document.getElementById('casa-' + item[2]) ;
+                    }
                 }
                 else if(casas_pl_2.includes(item[0]) && casas_pl_2.includes(item[2]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[1])
+                    if(!(casas_pl_1.includes(item[1])) && !(casas_pl_2.includes(item[1])))
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item[1]);
+                    }
                 }
                 else if(casas_pl_2.includes(item[1]) && casas_pl_2.includes(item[2]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[0])
+                    if(!(casas_pl_1.includes(item[0])) && !(casas_pl_2.includes(item[0])))
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item[0]);
+                    }
                 }
             });
         }
@@ -69,15 +78,56 @@ function jogada_mecha_senku()
             {
                 if(casas_pl_1.includes(item[0]) && casas_pl_1.includes(item[1]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[2])
+                    if(!(casas_pl_1.includes(item[2])) && !(casas_pl_2.includes(item[2])))
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item[2]);                       
+                    }
                 }
                 else if(casas_pl_1.includes(item[0]) && casas_pl_1.includes(item[2]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[1])
+                    if(!(casas_pl_1.includes(item[1])) && !(casas_pl_2.includes(item[1])))
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item[1]);
+                    }
                 }
                 else if(casas_pl_1.includes(item[1]) && casas_pl_1.includes(item[2]))
                 {
-                    casa_escolhida = document.getElementById('casa-' + item[0])
+                    if(!(casas_pl_1.includes(item[0])) && !(casas_pl_2.includes(item[0])))
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item[0]);
+                    }
+                }
+            });
+        }
+        //Segunda tentativa de ganhar
+        //Acontece quando não precisa se defender e não tem casas oucupadas para ganhar direto
+        if(casa_escolhida == null)
+        {
+            casas_pl_2.forEach(function (item, index)
+            {
+                if(!(casas_pl_1.includes(item-1)) && !(casas_pl_2.includes(item-1)) && item > 1)
+                {
+                    casa_escolhida = document.getElementById('casa-' + item-1);
+                }
+
+                if(casa_escolhida == null)
+                {
+                    if(!(casas_pl_1.includes(item+1)) && !(casas_pl_2.includes(item+1)) && item < 9)
+                    {
+                        casa_escolhida = document.getElementById('casa-' + item+1);
+                    }
+                }
+
+                if(casa_escolhida == null)
+                {
+                    for(let i = 1; i<10 ; i++)
+                    {
+                        if(!(casas_pl_1.includes(i)) && !(casas_pl_2.includes(i)))
+                        {
+                            casa_escolhida = document.getElementById('casa-' + i);
+                            break;
+                        }
+                    }
                 }
             });
         }
@@ -86,7 +136,7 @@ function jogada_mecha_senku()
     //jogando
     if(casa_escolhida != null)
     {
-        casas_pl_2.push(1 + parseInt(casa_escolhida.attributes.id.nodeValue.replace(/[^0-9]/g,'')));
+        casas_pl_2.push(parseInt(casa_escolhida.attributes.id.nodeValue.replace(/[^0-9]/g,'')));
         console.log("====" + casas_pl_2);
         casa_escolhida.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
         player_atual = pl.player_1;
@@ -103,7 +153,7 @@ function jogada_mecha_senku()
     {
         alert("Eitaa, você encontrou um erro, informe detalhadamente ao criador (offKevyn)!!");
     }
-}
+}'
 
 function clique(evt)
 {
