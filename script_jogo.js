@@ -1,4 +1,4 @@
-var player_atual, casas_pl_1 = [], casas_pl_2 = [], num_jogadas = 0,
+var player_atual, casas_pl_1 = [], casas_pl_2 = [], num_jogadas = 0, pl1_jogou = false,
     pl = 
     {
         player_1: 1,
@@ -24,11 +24,12 @@ const urlParams = new URLSearchParams(window.location.search), param_modo_jogo =
 
 function jogada_mecha_senku()
 {
+    casa_escolhida = null;
     //escolhendo a casa
+    //Primeira jogada
     if(num_jogadas === 1)
     {
         var casa_escolhida;
-        //casas dos cantos
         if(casas_pl_1.includes(5))
         {
             var op_casa = [1, 3, 7, 9];
@@ -40,11 +41,53 @@ function jogada_mecha_senku()
             casa_escolhida = document.getElementById('casa-5');
         }
     }
+    else
+    {
+        //Ganhar
+        if(casa_escolhida == null)
+        {
+            sequencia_vitoria.forEach(function (item, index)
+            {
+                if(casas_pl_2.includes(item[0]) && casas_pl_2.includes(item[1]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[2])
+                }
+                else if(casas_pl_2.includes(item[0]) && casas_pl_2.includes(item[2]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[1])
+                }
+                else if(casas_pl_2.includes(item[1]) && casas_pl_2.includes(item[2]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[0])
+                }
+            });
+        }
+        //Defender
+        if(casa_escolhida == null)
+        {
+            sequencia_vitoria.forEach(function (item, index)
+            {
+                if(casas_pl_1.includes(item[0]) && casas_pl_1.includes(item[1]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[2])
+                }
+                else if(casas_pl_1.includes(item[0]) && casas_pl_1.includes(item[2]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[1])
+                }
+                else if(casas_pl_1.includes(item[1]) && casas_pl_1.includes(item[2]))
+                {
+                    casa_escolhida = document.getElementById('casa-' + item[0])
+                }
+            });
+        }
+    }
 
     //jogando
     if(casa_escolhida != null)
     {
-        casas_pl_2.push(casa_clicada);
+        casas_pl_2.push(1 + parseInt(casa_escolhida.attributes.id.nodeValue.replace(/[^0-9]/g,'')));
+        console.log("====" + casas_pl_2);
         casa_escolhida.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
         player_atual = pl.player_1;
         if(ganhou(casas_pl_2))
@@ -64,52 +107,55 @@ function jogada_mecha_senku()
 
 function clique(evt)
 {
-    element = document.getElementById(evt.target.id);
-
-    casa_clicada = parseInt(evt.target.id.replace(/[^0-9]/g,''));
-
-    console.log(casa_clicada);
-    
-    if(casas_pl_2.includes(casa_clicada) == false && casas_pl_1.includes(casa_clicada) == false)
+    if(player_atual != pl.player_2_mecha_senku)
     {
-        if(player_atual == pl.player_2) //Player 2
-        {
-            casas_pl_2.push(casa_clicada);
-            element.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
-            player_atual = pl.player_1;
-            if( ganhou(casas_pl_2))
-            {
-                console.log("Player 2 ganhou");
-                pl_ganhou.innerText = 'Player 2 ganhou';
-                pl_ganhou.style.visibility = "visible";
-            }
-            fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
-            proximo_pl.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
-        }
-        else if(player_atual == pl.player_1 || player_atual == null)//Player 1
-        {
-            casas_pl_1.push(casa_clicada);
-            element.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
-            
-            player_atual = param_modo_jogo == 1 ? pl.player_2 : pl.player_2_mecha_senku;
-            
-            if( ganhou(casas_pl_1))
-            {
-                console.log("Player 1 ganhou");
-                pl_ganhou.innerText = 'Player 1 ganhou';
-                pl_ganhou.style.visibility = "visible";
-            }
 
-            fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
-            proximo_pl.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
+        element = document.getElementById(evt.target.id);
+    
+        casa_clicada = parseInt(evt.target.id.replace(/[^0-9]/g,''));
+    
+        console.log(casa_clicada);
+        
+        if(casas_pl_2.includes(casa_clicada) == false && casas_pl_1.includes(casa_clicada) == false)
+        {
+            if(player_atual == pl.player_2) //Player 2
+            {
+                casas_pl_2.push(casa_clicada);
+                element.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
+                player_atual = pl.player_1;
+                if( ganhou(casas_pl_2))
+                {
+                    console.log("Player 2 ganhou");
+                    pl_ganhou.innerText = 'Player 2 ganhou';
+                    pl_ganhou.style.visibility = "visible";
+                }
+                fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
+                proximo_pl.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
+            }
+            else if(player_atual == pl.player_1 || player_atual == null)//Player 1
+            {
+                casas_pl_1.push(casa_clicada);
+                element.innerHTML = '<span class="casa-text jogador-X ' + fonte + '">X</span>';
+                
+                player_atual = param_modo_jogo == 1 ? pl.player_2 : pl.player_2_mecha_senku;
+                
+                if( ganhou(casas_pl_1))
+                {
+                    console.log("Player 1 ganhou");
+                    pl_ganhou.innerText = 'Player 1 ganhou';
+                    pl_ganhou.style.visibility = "visible";
+                }
+    
+                fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
+                proximo_pl.innerHTML = '<span class="casa-text jogador-O ' + fonte + '">O</span>';
+            }
+            num_jogadas++;
         }
-        num_jogadas++;
-
+    
         if(player_atual == pl.player_2_mecha_senku)
         {
-            jogada_mecha_senku();
+           setTimeout(jogada_mecha_senku, 700);
         }
-
     }
 }
 
@@ -137,7 +183,7 @@ function reiniciar()
     
     casas_pl_1 = [];
     casas_pl_2 = [];
-    num_jogadas++;
+    num_jogadas = 0;
 
     player_atual = pl.player_1;
     fonte = 'fonte-' + Math.floor((Math.random() * 8) + 1);
