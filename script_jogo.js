@@ -22,7 +22,7 @@ var player_atual, casas_pl_1 = [], casas_pl_2 = [], num_jogadas = 0, pl1_jogou =
 
 const urlParams = new URLSearchParams(window.location.search), param_modo_jogo = urlParams.get('modo');
 
-'function jogada_mecha_senku()
+function jogada_mecha_senku()
 {
     casa_escolhida = null;
     //escolhendo a casa
@@ -105,7 +105,25 @@ const urlParams = new URLSearchParams(window.location.search), param_modo_jogo =
         {
             casas_pl_2.forEach(function (item, index)
             {
-                if(!(casas_pl_1.includes(item-1)) && !(casas_pl_2.includes(item-1)) && item > 1)
+                sequencia_vitoria.forEach(function (seqVit, indexVit)
+                {
+                    if(seqVit.includes(item))
+                    {
+                        if(!(casas_pl_1.includes(seqVit[0])) && !(casas_pl_1.includes(seqVit[1])) && !(casas_pl_1.includes(seqVit[2])))
+                        {
+                            if(casas_pl_1.includes(seqVit[0]))
+                            {
+                                casa_escolhida = document.getElementById('casa-' + seqVit[1]);
+                            }
+                            else
+                            {
+                                casa_escolhida = document.getElementById('casa-' + seqVit[0]);
+                            }
+                                
+                        }
+                    }
+                });
+                /*if(!(casas_pl_1.includes(item-1)) && !(casas_pl_2.includes(item-1)) && item > 1)
                 {
                     casa_escolhida = document.getElementById('casa-' + item-1);
                 }
@@ -116,7 +134,7 @@ const urlParams = new URLSearchParams(window.location.search), param_modo_jogo =
                     {
                         casa_escolhida = document.getElementById('casa-' + item+1);
                     }
-                }
+                }*/
 
                 if(casa_escolhida == null)
                 {
@@ -153,7 +171,7 @@ const urlParams = new URLSearchParams(window.location.search), param_modo_jogo =
     {
         alert("Eitaa, você encontrou um erro, informe detalhadamente ao criador (offKevyn)!!");
     }
-}'
+}
 
 function clique(evt)
 {
