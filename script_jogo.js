@@ -54,7 +54,7 @@ function jogada_mecha_senku()
                     {
                        casa_escolhida = document.getElementById('casa-' + item[2]) ;
                     }
-                }
+                }    
                 else if(casas_pl_2.includes(item[0]) && casas_pl_2.includes(item[2]))
                 {
                     if(!(casas_pl_1.includes(item[1])) && !(casas_pl_2.includes(item[1])))
@@ -113,29 +113,23 @@ function jogada_mecha_senku()
                         {
                             if(casas_pl_1.includes(seqVit[0]))
                             {
-                                casa_escolhida = document.getElementById('casa-' + seqVit[1]);
+                                if(!(casas_pl_1.includes(seqVit[1])) && !(casas_pl_2.includes(seqVit[1])))
+                                {
+                                    casa_escolhida = document.getElementById('casa-' + seqVit[1]);
+                                }
                             }
                             else
                             {
-                                casa_escolhida = document.getElementById('casa-' + seqVit[0]);
+                                if(!(casas_pl_1.includes(seqVit[0])) && !(casas_pl_2.includes(seqVit[0])))
+                                {
+                                    casa_escolhida = document.getElementById('casa-' + seqVit[0]);
+                                }
                             }
                                 
                         }
                     }
                 });
-                /*if(!(casas_pl_1.includes(item-1)) && !(casas_pl_2.includes(item-1)) && item > 1)
-                {
-                    casa_escolhida = document.getElementById('casa-' + item-1);
-                }
-
-                if(casa_escolhida == null)
-                {
-                    if(!(casas_pl_1.includes(item+1)) && !(casas_pl_2.includes(item+1)) && item < 9)
-                    {
-                        casa_escolhida = document.getElementById('casa-' + item+1);
-                    }
-                }*/
-
+                   
                 if(casa_escolhida == null)
                 {
                     for(let i = 1; i<10 ; i++)
