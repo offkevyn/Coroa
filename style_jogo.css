@@ -23,7 +23,41 @@ body
     background-attachment: fixed;
 }
 
+#main
+{
+    margin: auto;
+    max-width: 400px;
+    height: 100%;
+    padding: 0;
+    padding-top: 0px;
+    margin-bottom: 100px;
+}
 
+#info
+{
+    display: block;
+    background-color: #e7fae3;
+    margin: 10px auto 20px auto;
+    width: 260px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 10px;
+
+    font-family: 'Delius', cursive;
+    font-size: 0.9rem;
+}
+
+.detalhe
+{
+    color: #39FF14;
+}
+
+#info p
+{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+}
 
 #titulo
 {
@@ -64,6 +98,7 @@ body
 #aux
 {
     position: relative;
+    height: 100%;
 }
 
 #ganhou
@@ -91,16 +126,6 @@ body
     border: 1px solid rgb(170, 0, 255);
     box-shadow: -1px -1px 20px 0.5px rgb(170, 0, 255, 0.6);
     border-radius: 15px;
-}
-
-#main
-{
-    margin: auto;
-    max-width: 400px;
-    height: 100%;
-    padding: 0;
-    padding-top: 0px;
-    margin-bottom: 20px;
 }
 
 #butons
@@ -172,13 +197,19 @@ button:focus
 {
     width: 100%;
     margin: auto;
+    margin-bottom: 500px;
 }
 
 .linha
 {
     width: 100%;
-    height: 8rem;
+    height: 7.7rem;
     margin: 0;
+}
+
+.linha3
+{
+    margin-bottom: 10px;
 }
 
 .casa
@@ -288,11 +319,10 @@ button:focus
 
 footer
 {
-    margin-top: 100px;
     width: 100%;
     height: 25px;
     background-color: #023B65;
-    position: fixed;
+    position: relative;
     bottom: 0;
     padding: 0;
     margin: 0 auto;
