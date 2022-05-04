@@ -3,26 +3,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Delius&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
 
-
-*
-{
-    box-sizing: border-box;
-}
-
-body, html
-{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-body
-{
-    background-color: #070d22;
-    background-image: linear-gradient(to bottom right, #131a38, #023B65, #070d22, #070d22);
-    background-attachment: fixed;
-}
-
 #main
 {
     margin: auto;
@@ -31,32 +11,6 @@ body
     padding: 0;
     padding-top: 0px;
     margin-bottom: 100px;
-}
-
-#info
-{
-    display: block;
-    background-color: #e7fae3;
-    margin: 10px auto 20px auto;
-    width: 260px;
-    height: 70px;
-    padding: 10px;
-    border-radius: 10px;
-
-    font-family: 'Delius', cursive;
-    font-size: 0.9rem;
-}
-
-.detalhe
-{
-    color: #39FF14;
-}
-
-#info p
-{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%); 
 }
 
 #titulo
