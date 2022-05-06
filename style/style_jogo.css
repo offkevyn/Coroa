@@ -3,6 +3,11 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Delius&family=Gloria+Hallelujah&family=Indie+Flower&family=Mansalva&family=Merienda&family=Permanent+Marker&family=Rock+Salt&family=Schoolbell&display=swap');
 
+html body
+{
+    height: 100vh;
+}
+
 #main
 {
     margin: auto;
@@ -152,6 +157,7 @@ button:focus
     width: 100%;
     margin: auto;
     margin-bottom: 500px;
+    padding-bottom: 50px;
 }
 
 .linha
